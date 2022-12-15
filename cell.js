@@ -33,6 +33,7 @@ export class Cell {
 
   reveal() {
     if (this.isRevealed) return;
+    if (this.isFlagged) return;
 
     if (this.board.minesPlanted === 0) {
       this.board.scatterMines(this);
