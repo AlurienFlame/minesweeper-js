@@ -54,7 +54,6 @@ export class Cell {
         this.element.innerText = adjacentMines;
         this.element.classList.add(`adj-${adjacentMines}`);
       } else {
-        // Floodfill borked at edge of screen
         this.getAdjacentCells().forEach((cell) => cell.reveal());
       }
     }
