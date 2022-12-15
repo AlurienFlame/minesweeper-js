@@ -23,6 +23,8 @@ export class Cell {
       case 0:
         this.reveal();
         break;
+      case 1:
+        this.getAdjacentCells().filter((cell) => !cell.isFlagged).forEach((cell) => cell.reveal());
       case 2:
         this.toggleFlag();
         break;
