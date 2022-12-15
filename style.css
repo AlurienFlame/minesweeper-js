@@ -3,7 +3,7 @@
   text-align: center;
   --background-color: #3C3836;
   --board-color: #504945;
-  --square-color: #665C54;
+  --cell-color: #665C54;
   --text-color: #FBF1C7;
   --link-color: #83A598;
   --accent-color: #689D6A;
@@ -99,7 +99,7 @@ a:visited {
 }
 
 .cell.hidden {
-  background-color: var(--square-color);
+  background-color: var(--cell-color);
   cursor: pointer;
 }
 
@@ -149,11 +149,54 @@ a:visited {
   color: var(--color-adj-8);
 }
 
+input[type="range"] {
+  appearance: none;
+  height: 1em;
+  background-color: var(--cell-color);
+  border-radius: 1rem;
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Browser-specific CSS for slider knob */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  background-color: var(--accent-color);
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  background-color: var(--accent-color);
+  cursor: pointer;
+}
+
+input[type=range]::-ms-thumb {
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  background-color: var(--accent-color);
+  cursor: pointer;
+}
+
 #restart {
   background-color: var(--accent-color);
   border: none;
   border-radius: 0.25rem;
   padding: 0.5rem;
+  margin: 1rem;
   cursor: pointer;
   font-size: 1.5em;
   font-weight: bold;

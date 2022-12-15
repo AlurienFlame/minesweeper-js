@@ -29,6 +29,14 @@
     <div id="game"></div>
   </div>
   <script src="./main.js" type="module"></script>
+  <div class="sliders">
+    <label for="width-slider">Width: <span id="width-display"></span></label>
+    <input type="range" id="width-slider" name="width" min="5" max="30" value="20">
+    <label for="height-slider">Height: <span id="height-display"></span></label>
+    <input type="range" id="height-slider" name="height" min="5" max="30" value="20">
+    <label for="mines-slider">Mines: <span id="mines-display"></span></label>
+    <input type="range" id="mines-slider" name="mines" min="1" max="100" value="50">
+  </div>
   <button id="restart">Restart</button>
 </body>
 

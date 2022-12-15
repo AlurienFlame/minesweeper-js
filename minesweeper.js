@@ -1,10 +1,14 @@
 import { Cell } from './cell.js';
 
 export class Minesweeper {
-  constructor(width, height, mineCount, element, mineCountElem, timeElem, restartElem) {
-    this.width = width;
-    this.height = height;
-    this.mineCount = mineCount;
+  constructor(
+    widthElem,
+    heightElem,
+    minesElem,
+    element,
+    mineCountElem,
+    timeElem,
+    restartElem) {
     this.element = element;
     this.mineCountElem = mineCountElem;
     this.timeElem = timeElem;
@@ -14,17 +18,34 @@ export class Minesweeper {
 
     this.element.addEventListener('contextmenu', (e) => e.preventDefault());
     setInterval(this.updateTime.bind(this), 100);
-    restartElem.addEventListener('click', this.newGame.bind(this));
+    restartElem.addEventListener('click', function () { this.newGame.call(this, widthElem, heightElem, minesElem); }.bind(this));
 
-    this.newGame();
+    this.newGame(
+      widthElem,
+      heightElem,
+      minesElem
+    );
   }
 
-  newGame() {
+  newGame(
+    widthElem,
+    heightElem,
+    minesElem
+  ) {
+    this.width = widthElem.value;
+    this.height = heightElem.value;
+    this.mineCount = minesElem.value;
+
+    // Set CSS variables for the grid
+    document.documentElement.style.setProperty('--columns', this.width);
+    document.documentElement.style.setProperty('--rows', this.height);
+
     // Wipe the board
     this.cells = {};
     this.element.innerHTML = '';
 
     // Instantiate cells and their elements
+    // FIXME: Restarting on high dimensions is slow, probably because of this
     for (let i = 0; i < this.width; i++) {
       for (let j = 0; j < this.height; j++) {
         this.cells[`${i},${j}`] = new Cell(i, j, this);
