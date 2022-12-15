@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="titlebar">
+    <h1>Minesweeper</h1>
+    <a href="https://lucienlasseau.com">Author</a>
+    <a href="https://github.com/AlurienFlame/minesweeper-js">GitHub</a>
+  </header>
+  <div class="game-wrapper">
+    <div class="game-header">
+      <div>
+        Mines: <span id="mine-count">0</span>
+      </div>
+      <div>
+        Time: <span id="time">0</span>
+      </div>
+    </div>
+    <div id="game"></div>
+  </div>
+  <script src="./main.js" type="module"></script>
+  <button id="restart">Restart</button>
+</body>
+
+</html>
