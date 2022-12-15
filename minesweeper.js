@@ -17,6 +17,10 @@ export class Minesweeper {
     this.minesPlanted = 0;
 
     this.element.addEventListener('contextmenu', (e) => e.preventDefault());
+    // middle mouse down default
+    this.element.addEventListener('mousedown', (e) => {
+      if (e.button === 1) e.preventDefault();
+    });
     setInterval(this.updateTime.bind(this), 100);
     restartElem.addEventListener('click', function () { this.newGame.call(this, widthElem, heightElem, minesElem); }.bind(this));
 
