@@ -6,6 +6,7 @@
   --cell-color: #665C54;
   --text-color: #FBF1C7;
   --link-color: #83A598;
+  --explosion-background: #CC241D;
   --accent-color: #689D6A;
 
   --color-adj-1: #458588;
@@ -108,13 +109,18 @@ a:visited {
 }
 
 .cell.exploded {
-  background-color: red;
-  /* TODO: Mine svg */
+  background-color: var(--explosion-background);
+  background-image: url(./mine.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cell.flagged {
-  background-color: orangered;
-  /* TODO: Flag svg */
+  background-image: url(./flag.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .cell.adj-1 {
